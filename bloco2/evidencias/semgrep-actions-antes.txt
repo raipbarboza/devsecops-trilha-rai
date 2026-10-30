@@ -1,0 +1,50 @@
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:49.1296624Z ##[group]Run semgrep scan --config p/javascript --severity ERROR --severity WARNING --error --strict --metrics off --disable-version-check app/src
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:49.1297594Z ^[[36;1msemgrep scan --config p/javascript --severity ERROR --severity WARNING --error --strict --metrics off --disable-version-check app/src^[[0m
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:49.1312068Z shell: /usr/bin/bash -e {0}
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:49.1312434Z ##[endgroup]
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:50.9494935Z                
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:50.9495636Z                
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:50.9496372Z ┌─────────────┐
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:50.9496866Z │ Scan Status │
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:50.9497284Z └─────────────┘
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:50.9497881Z   Scanning 6 files tracked by git with 74 Code rules:
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:50.9502714Z   Scanning 6 files with 68 js rules.
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2072415Z                    
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2072921Z                    
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2073745Z ┌─────────────────┐
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2074319Z │ 2 Code Findings │
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2075057Z └─────────────────┘
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2075720Z                            
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2076164Z     app/src/routes/files.js
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2077398Z     ❯❱ javascript.express.security.audit.express-path-join-resolve-traversal.express-path-join-resolve-traversal
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2078171Z           ❰❰ Blocking ❱❱
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2078786Z           Possible writing outside of the destination, make sure that the target path is nested in the
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2079481Z           intended destination                                                                        
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2080068Z           Details: https://sg.run/weRn                                                                
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2080642Z                                                                                                       
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2081256Z            10┆ const filePath = path.join(UPLOADS_DIR, req.params.filename);
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2081710Z                            
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2082086Z     app/src/routes/tasks.js
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2082621Z    ❯❯❱ javascript.lang.security.audit.code-string-concat.code-string-concat
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2083159Z           ❰❰ Blocking ❱❱
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2083747Z           Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2084489Z           this can lead to execution of arbitrary system commands in the context of your application process.
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2085226Z           Avoid `eval` whenever possible.                                                                    
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2086064Z           Details: https://sg.run/96Yk                                                                       
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2086656Z                                                                                                              
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2087228Z            16┆ const result = tasks.filter((t) => eval(expr));
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2087517Z 
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2087697Z                 
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2087978Z                 
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2088276Z ┌──────────────┐
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2088622Z │ Scan Summary │
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2088960Z └──────────────┘
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2089338Z ✅ Scan completed successfully.
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2089725Z  • Findings: 2 (2 blocking)
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2090084Z  • Rules run: 68
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2090428Z  • Targets scanned: 6
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2090797Z  • Parsed lines: ~100.0%
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2091190Z  • Scan was limited to files tracked by git
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2091786Z  • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.2092331Z Ran 68 rules on 6 files: 2 findings.
+Build e Semgrep	UNKNOWN STEP	2026-10-30T18:19:51.3743316Z ##[error]Process completed with exit code 1.
