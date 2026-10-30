@@ -29,6 +29,10 @@ docker run -p 3000:3000 task-api
 | POST | `/api/tasks` | Cria uma nova tarefa (`{ "title": "...", "owner": "..." }`) |
 | PATCH | `/api/tasks/:id` | Atualiza uma tarefa |
 | DELETE | `/api/tasks/:id` | Remove uma tarefa |
-| GET | `/api/tasks/filter?expr=...` | Filtro avançado de tarefas |
+| GET | `/api/tasks/filter?done=false&owner=mentoria` | Filtro por conclusão e responsável |
 | GET | `/api/ping?host=...` | Diagnóstico de rede |
 | GET | `/api/files/:filename` | Lê um arquivo da pasta `uploads/` |
+
+## Verificação local
+
+Use Node.js 22 e execute `npm ci --ignore-scripts`, seguido de `npm test`. O filtro antigo `expr` foi removido por executar código recebido do usuário. Consulte `../bloco2/README.md` para a entrega de CI e os limites de segurança desta base didática.

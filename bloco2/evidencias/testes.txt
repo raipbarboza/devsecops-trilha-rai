@@ -1,0 +1,50 @@
+
+> saci-devsecops-task-api@1.0.0 test
+> node --test
+
+TAP version 13
+# Subtest: healthcheck e listagem continuam disponíveis
+ok 1 - healthcheck e listagem continuam disponíveis
+  ---
+  duration_ms: 22.937045
+  type: 'test'
+  ...
+# Subtest: filtro aplica done e owner sem executar expressões
+ok 2 - filtro aplica done e owner sem executar expressões
+  ---
+  duration_ms: 3.958658
+  type: 'test'
+  ...
+# Subtest: expressão maliciosa não é executada
+ok 3 - expressão maliciosa não é executada
+  ---
+  duration_ms: 1.46769
+  type: 'test'
+  ...
+# Subtest: filtros inválidos são rejeitados
+ok 4 - filtros inválidos são rejeitados
+  ---
+  duration_ms: 5.433551
+  type: 'test'
+  ...
+# Subtest: arquivo permitido continua disponível
+ok 5 - arquivo permitido continua disponível
+  ---
+  duration_ms: 2.211725
+  type: 'test'
+  ...
+# Subtest: tentativas de sair de uploads são rejeitadas
+ok 6 - tentativas de sair de uploads são rejeitadas
+  ---
+  duration_ms: 2.59845
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 139.423049

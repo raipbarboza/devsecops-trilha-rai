@@ -7,17 +7,21 @@ router.get("/", (req, res) => {
   res.json(db.listTasks());
 });
 
-// GET /api/tasks/filter?expr=<expressão> - filtro avançado de tarefas
+// GET /api/tasks/filter?done=true&owner=mentoria - filtros sem executar código.
 router.get("/filter", (req, res) => {
-  const { expr } = req.query;
-  if (!expr) return res.status(400).json({ error: "Parâmetro 'expr' é obrigatório" });
-  try {
-    const tasks = db.listTasks();
-    const result = tasks.filter((t) => eval(expr));
-    res.json(result);
-  } catch (err) {
-    res.status(400).json({ error: "Expressão inválida", details: err.message });
+  const { done, owner } = req.query;
+  const allowed = new Set(["done", "owner"]);
+  if (Object.keys(req.query).some((key) => !allowed.has(key)) ||
+      (done === undefined && owner === undefined) ||
+      (done !== undefined && done !== "true" && done !== "false") ||
+      (owner !== undefined && (typeof owner !== "string" || owner.length > 100))) {
+    return res.status(400).json({ error: "Use done=true|false e/ou owner (até 100 caracteres)" });
   }
+  const result = db.listTasks().filter((task) =>
+    (done === undefined || task.done === (done === "true")) &&
+    (owner === undefined || task.owner === owner)
+  );
+  res.json(result);
 });
 
 // GET /api/tasks/:id - busca uma tarefa pelo id

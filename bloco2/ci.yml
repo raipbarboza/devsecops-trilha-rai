@@ -29,6 +29,7 @@ jobs:
         run: |
           npm ci --ignore-scripts --no-audit --no-fund
           find src -name '*.js' -exec node --check {} \;
+          npm test
       - name: Instalar Semgrep
         run: python -m pip install 'semgrep==1.183.0'
       - name: SAST - bloquear achados ERROR e WARNING

@@ -36,8 +36,10 @@ app.use("/api/tasks", tasksRouter);
 app.use("/api", networkRouter); // expõe GET /api/ping
 app.use("/api/files", filesRouter);
 
-app.listen(PORT, () => {
-  console.log(`API de tarefas rodando na porta ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`API de tarefas rodando na porta ${PORT}`);
+  });
+}
 
 module.exports = app;
