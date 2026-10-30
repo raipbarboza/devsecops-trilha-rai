@@ -34,17 +34,17 @@ A branch `feat/semana2-ci-cd` foi publicada em duas etapas, preservando o histó
 | Antes das correções | `6c57d69` | Failure — saída 1 no gate | [Execução 1](https://github.com/raipbarboza/devsecops-trilha-rai/actions/runs/41105932477) |
 | Após as correções | `f3fdbfb` | Success | [Execução 2](https://github.com/raipbarboza/devsecops-trilha-rai/actions/runs/41106176078) |
 
-Prints reais das páginas de resultado:
+As evidências são mantidas em texto, por preferência do autor:
 
-![Pipeline falhando](evidencias/pipeline-falhando.jpg)
+- [Log real do Semgrep no Actions antes da correção](evidencias/semgrep-actions-antes.txt): trecho original fornecido a partir da execução 1, com timestamps, os dois achados bloqueantes e a saída 1. Foram omitidas somente as etapas anteriores e posteriores ao Semgrep.
+- [Saída local após a correção](evidencias/semgrep-depois.txt): nenhum achado; evidência local, não log da execução 2.
+- O resultado verde da execução 2 pode ser conferido no link da tabela. O log textual dessa execução ainda não foi anexado.
 
-![Pipeline passando](evidencias/pipeline-passando.jpg)
-
-Os prints mostram os resumos das execuções. O print adicional dos logs com os achados ainda está pendente: o GitHub exige login para visualizar esses logs e o navegador disponível está sem sessão autenticada. Os dois alertas estão registrados nas evidências locais acima; elas não substituem o print dos logs exigido pela mentoria.
+O enunciado solicita prints; a substituição por arquivos de texto precisa ser aceita pela mentoria. Nenhuma imagem é usada nesta versão da entrega.
 
 ## Pendências para fechar a entrega
 
-1. Entrar no GitHub, abrir a execução 1, expandir a etapa SAST e salvar o print com os achados em `bloco2/evidencias/semgrep-actions-achados.jpg`.
+1. Anexar também o log real da execução 2 em `bloco2/evidencias/semgrep-actions-depois.txt` e confirmar com a mentoria a aceitação das evidências textuais.
 2. Em **Settings → Rules → Rulesets** (ou proteção de branches), proteger `main`, exigir pull request e o status check **Build e Semgrep**. Evitar permissões de bypass se a intenção for bloquear todos os merges que falhem. A pipeline vermelha, sozinha, não impede o merge sem essa configuração.
 3. Abrir o pull request da branch para `main` e conferir o check obrigatório antes do merge.
 4. Registrar as evidências adicionais em commit dentro de `bloco2/` antes do prazo da Semana 4 informado pela mentoria. A data exata desse prazo não consta no enunciado recebido.
