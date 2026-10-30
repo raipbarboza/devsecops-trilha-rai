@@ -1,0 +1,45 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 6 files tracked by git with 74 Code rules:
+  Scanning 6 files with 68 js rules.
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 2 (2 blocking)
+ • Rules run: 68
+ • Targets scanned: 6
+ • Parsed lines: ~100.0%
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 68 rules on 6 files: 2 findings.
+                   
+                   
+┌─────────────────┐
+│ 2 Code Findings │
+└─────────────────┘
+                           
+    app/src/routes/files.js
+    ❯❱ javascript.express.security.audit.express-path-join-resolve-traversal.express-path-join-resolve-traversal
+          ❰❰ Blocking ❱❱
+          Possible writing outside of the destination, make sure that the target path is nested in the
+          intended destination                                                                        
+          Details: https://sg.run/weRn                                                                
+                                                                                                      
+           10┆ const filePath = path.join(UPLOADS_DIR, req.params.filename);
+                           
+    app/src/routes/tasks.js
+   ❯❯❱ javascript.lang.security.audit.code-string-concat.code-string-concat
+          ❰❰ Blocking ❱❱
+          Found data from an Express or Next web request flowing to `eval`. If this data is user-controllable
+          this can lead to execution of arbitrary system commands in the context of your application process.
+          Avoid `eval` whenever possible.                                                                    
+          Details: https://sg.run/96Yk                                                                       
+                                                                                                             
+           16┆ const result = tasks.filter((t) => eval(expr));
+
