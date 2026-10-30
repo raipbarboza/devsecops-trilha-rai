@@ -40,7 +40,9 @@ Prints reais das páginas de resultado:
 
 ![Pipeline passando](evidencias/pipeline-passando.jpg)
 
-Os prints acima mostram os resultados das execuções. Falta anexar o print detalhado dos achados do Semgrep na execução que falhou.
+Os prints acima mostram os resultados das execuções. O print abaixo registra a saída real do GitHub Actions consultada no terminal com `gh run view 41105932477 --repo raipbarboza/devsecops-trilha-rai --log-failed`, incluindo os dois achados bloqueantes e a saída 1:
+
+![Achados do Semgrep no log do Actions exibido no terminal](evidencias/semgrep-actions-achados.png)
 
 Evidências textuais complementares:
 
@@ -52,10 +54,9 @@ Os arquivos de texto são mantidos como complemento aos prints solicitados no en
 
 ## Pendências para fechar a entrega
 
-1. Anexar o print com os dois achados bloqueantes do Semgrep e a saída 1 em `bloco2/evidencias/semgrep-actions-achados.jpg`. Se os logs não carregarem no navegador, capturar no terminal a saída real obtida com `gh run view 41105932477 --repo raipbarboza/devsecops-trilha-rai --log-failed`, identificando a execução. O TXT já está preservado como complemento.
-2. Em **Settings → Rules → Rulesets** (ou proteção de branches), proteger `main`, exigir pull request e o status check **Build e Semgrep**. Evitar permissões de bypass se a intenção for bloquear todos os merges que falhem. A pipeline vermelha, sozinha, não impede o merge sem essa configuração.
-3. Abrir o pull request da branch para `main` e conferir o check obrigatório antes do merge.
-4. Registrar as evidências adicionais em commit dentro de `bloco2/` antes do prazo da Semana 4 informado pela mentoria. A data exata desse prazo não consta no enunciado recebido.
+1. Em **Settings → Rules → Rulesets** (ou proteção de branches), proteger `main`, exigir pull request e o status check **Build e Semgrep**. Evitar permissões de bypass se a intenção for bloquear todos os merges que falhem. A pipeline vermelha, sozinha, não impede o merge sem essa configuração.
+2. Abrir o pull request da branch para `main` e conferir o check obrigatório antes do merge.
+3. Registrar as evidências adicionais em commit dentro de `bloco2/` antes do prazo da Semana 4 informado pela mentoria. A data exata desse prazo não consta no enunciado recebido.
 
 Não foi realizada implantação pública nem merge na branch `main`.
 
