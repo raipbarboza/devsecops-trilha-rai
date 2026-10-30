@@ -25,15 +25,31 @@ O contrato de `/api/tasks/filter` mudou: `expr` deixa de ser aceito. Exemplos v�
 
 Esses arquivos são saídas locais da ferramenta, não prints de execuções no GitHub Actions.
 
-## Completar a entrega no GitHub
+## Execuções reais no GitHub Actions
 
-1. Publicar a branch no repositório `raipbarboza/devsecops-trilha-rai` primeiro no commit `6c57d69` (gate antes da correção). Aguardar a falha em **Actions → CI - Bloco 2 → Build e Semgrep**.
-2. Salvar um print real do job e do achado em `bloco2/evidencias/pipeline-falhando.png`. Copiar também a URL da execução.
-3. Publicar os commits de correção seguintes na mesma branch, sem reescrever o histórico. Aguardar a execução verde e salvar `bloco2/evidencias/pipeline-passando.png`, junto com sua URL.
-4. Em **Settings → Rules → Rulesets** (ou proteção de branches), proteger `main`, exigir pull request e o status check **Build e Semgrep**. Evitar permissões de bypass se a intenção for bloquear todos os merges que falhem.
-5. Fazer commit dos prints e URLs dentro de `bloco2/` antes do prazo da Semana 4 informado pela mentoria. A data exata desse prazo não consta no enunciado recebido.
+A branch `feat/semana2-ci-cd` foi publicada em duas etapas, preservando o histórico:
 
-Enquanto não houver publicação e acesso às execuções, os prints e a proteção da branch permanecem pendentes. Não foi realizada implantação pública.
+| Cenário | Commit | Resultado | Execução |
+| --- | --- | --- | --- |
+| Antes das correções | `6c57d69` | Failure — saída 1 no gate | [Execução 1](https://github.com/raipbarboza/devsecops-trilha-rai/actions/runs/41105932477) |
+| Após as correções | `f3fdbfb` | Success | [Execução 2](https://github.com/raipbarboza/devsecops-trilha-rai/actions/runs/41106176078) |
+
+Prints reais das páginas de resultado:
+
+![Pipeline falhando](evidencias/pipeline-falhando.jpg)
+
+![Pipeline passando](evidencias/pipeline-passando.jpg)
+
+Os prints mostram os resumos das execuções. O print adicional dos logs com os achados ainda está pendente: o GitHub exige login para visualizar esses logs e o navegador disponível está sem sessão autenticada. Os dois alertas estão registrados nas evidências locais acima; elas não substituem o print dos logs exigido pela mentoria.
+
+## Pendências para fechar a entrega
+
+1. Entrar no GitHub, abrir a execução 1, expandir a etapa SAST e salvar o print com os achados em `bloco2/evidencias/semgrep-actions-achados.jpg`.
+2. Em **Settings → Rules → Rulesets** (ou proteção de branches), proteger `main`, exigir pull request e o status check **Build e Semgrep**. Evitar permissões de bypass se a intenção for bloquear todos os merges que falhem. A pipeline vermelha, sozinha, não impede o merge sem essa configuração.
+3. Abrir o pull request da branch para `main` e conferir o check obrigatório antes do merge.
+4. Registrar as evidências adicionais em commit dentro de `bloco2/` antes do prazo da Semana 4 informado pela mentoria. A data exata desse prazo não consta no enunciado recebido.
+
+Não foi realizada implantação pública nem merge na branch `main`.
 
 ## Origem e limites
 
