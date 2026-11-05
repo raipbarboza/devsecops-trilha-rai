@@ -6,13 +6,22 @@ trilha de DevSecOps.
 
 ## Como rodar localmente
 
+A partir da raiz do repositório, use Node.js 22:
+
 ```bash
-npm install
+cd app
+npm ci --ignore-scripts
 npm start
 # API disponível em http://localhost:3000
 ```
 
+## Limites do ambiente didático
+
+A API ainda contém vulnerabilidades de estudo; consulte os [limites do Bloco 2](../bloco2/README.md#origem-e-limites). O endpoint raiz `/` ainda anuncia o filtro antigo `expr`; o contrato válido do roteador é `done`/`owner`, documentado abaixo.
+
 ## Como rodar com Docker
+
+Execute os comandos abaixo dentro de `app/`. O Dockerfile publicado usa Node.js 14, enquanto o fluxo local e a CI usam Node.js 22. O contêiner não é validado pelo workflow atual e deve ser alinhado em uma alteração própria.
 
 ```bash
 docker build -t task-api .
@@ -35,4 +44,4 @@ docker run -p 3000:3000 task-api
 
 ## Verificação local
 
-Use Node.js 22 e execute `npm ci --ignore-scripts`, seguido de `npm test`. O filtro antigo `expr` foi removido por executar código recebido do usuário. Consulte `../bloco2/README.md` para a entrega de CI e os limites de segurança desta base didática.
+Use Node.js 22 e execute `npm ci --ignore-scripts`, seguido de `npm test`. O filtro antigo `expr` foi removido por executar código recebido do usuário. Consulte o [README do Bloco 2](../bloco2/README.md) para a entrega de CI e os limites de segurança desta base didática.
