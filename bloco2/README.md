@@ -52,13 +52,15 @@ Evidências textuais complementares:
 
 Os arquivos de texto são mantidos como complemento aos prints solicitados no enunciado.
 
-## Pendências para fechar a entrega
+## Estado da publicação e verificações pendentes
 
-1. Em **Settings → Rules → Rulesets** (ou proteção de branches), proteger `main`, exigir pull request e o status check **Build e Semgrep**. Evitar permissões de bypass se a intenção for bloquear todos os merges que falhem. A pipeline vermelha, sozinha, não impede o merge sem essa configuração.
-2. Abrir o pull request da branch para `main` e conferir o check obrigatório antes do merge.
-3. Registrar as evidências adicionais em commit dentro de `bloco2/` antes do prazo da Semana 4 informado pela mentoria. A data exata desse prazo não consta no enunciado recebido.
+O workflow, as correções e as evidências deste bloco estão publicados na branch `main`. Os links acima preservam o registro das execuções anteriores na branch de trabalho. A presença dos arquivos em `main` não comprova, por si só, revisão ou integração por pull request.
 
-Não foi realizada implantação pública nem merge na branch `main`.
+- Conferir em Settings → Rules → Rulesets se `main` exige pull request e o status check **Build e Semgrep**, além das permissões de bypass. A pipeline sozinha não configura essa proteção.
+- Conferir os requisitos de entrega da mentoria e o prazo oficial da Semana 4; a data exata não consta no material recebido.
+- Se exigido pela entrega, anexar o log textual da execução de sucesso e o vínculo com o PR correspondente.
+
+Esta documentação não comprova implantação pública nem a configuração atual de proteção de branches.
 
 ## Origem e limites
 
